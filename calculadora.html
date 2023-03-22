@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <script src="logic.js"></script>
+    <title>Calculadora científica</title>
+</head>
+
+<body>
+    <header>
+        <h1>Calculadora científica</h1>
+    </header>
+    <main>
+        <table>
+            <tr>
+                <th colspan="5">
+                    <input id="displayBox" type="text" readonly>
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <div class="displaytable-cell" id="bMClear">
+                        <button class="button greybutton" type="button" onclick="calculadora.clearMemory()">MC</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="displaytable-cell" id="bMRead">
+                        <button class="button greybutton" type="button" onclick="calculadora.readMemory()">MR</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="displaytable-cell" id="bMAdd">
+                        <button class="button greybutton" type="button" onclick="calculadora.addToMemory()">M+</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="displaytable-cell" id="bMSub">
+                        <button class="button greybutton" type="button" onclick="calculadora.subtractFromMemory()">M-</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="displaytable-cell" id="bMSave">
+                        <button class="button greybutton" type="button" onclick="calculadora.saveToMemory()">MS</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="displaytable-cell" id="bSquare">
+                        <button class="button blackbutton" type="button" onclick="calculadora.square()">x^2</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="displaytable-cell" id="bNthPowerOfTenOr">
+                        <button class="button blackbutton" type="button" onclick="calculadora.nthTenPower()">10^x</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="displaytable-cell" id="bSine">
+                        <button class="button blackbutton" type="button" onclick="calculadora.writeMathFunction('sin(')">sin</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="displaytable-cell" id="bCosine">
+                        <button class="button blackbutton" type="button" onclick="calculadora.writeMathFunction('cos(')">cos</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="displaytable-cell" id="bTangent">
+                        <button class="button blackbutton" type="button" onclick="calculadora.writeMathFunction('tan(')">tan</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="displaytable-cell" id="bCube">
+                        <button class="button blackbutton" type="button" onclick="calculadora.cube()">x^3</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="displaytable-cell" id="bInverseNumber">
+                        <button class="button blackbutton" type="button" onclick="calculadora.inverseNumber()">x^-1</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="displaytable-cell" id="bSqrt">
+                        <button class="button blackbutton" type="button" onclick="calculadora.writeMathFunction('sqrt(')">sqrt</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="displaytable-cell" id="bLogOr">
+                        <button class="button blackbutton" type="button" onclick="calculadora.writeMathFunction('log(')">log</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="displaytable-cell" id="bNaturalLog">
+                        <button class="button blackbutton" type="button" onclick="calculadora.writeMathFunction('ln(')">ln</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="displaytable-cell" id="bPercentage">
+                        <button class="button" type="button" onclick="calculadora.writeMathFunction('e')">e</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="displaytable-cell" id="bClearDisplayCE">
+                        <button class="button redbutton" type="button" onclick="calculadora.clearDisplay()">CE</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="displaytable-cell" id="bClearDisplayC">
+                        <button class="button redbutton" type="button" onclick="calculadora.clearDisplay()">C</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="displaytable-cell" id="bDelete">
+                        <button class="button redbutton" type="button" onclick="calculadora.eraseLastInput()">Del</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="displaytable-cell" id="bDivide">
+                        <button class="button greenbutton" type="button" onclick="calculadora.writeOperatorToDisplay('/')">/</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="displaytable-cell" id="bPi">
+                        <button class="button" type="button" onclick="calculadora.writeMathFunction('PI')">π</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="displaytable-cell" id="bSeven">
+                        <button class="button bluebutton" type="button" onclick="calculadora.writeToDisplay('7')">7</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="displaytable-cell" id="bEight">
+                        <button class="button bluebutton" type="button" onclick="calculadora.writeToDisplay('8')">8</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="displaytable-cell" id="bNine">
+                        <button class="button bluebutton" type="button" onclick="calculadora.writeToDisplay('9')">9</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="displaytable-cell" id="bMultiply">
+                        <button class="button greenbutton" type="button" onclick="calculadora.writeOperatorToDisplay('*')">x</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="displaytable-cell" id="bFactorial">
+                        <button class="button" type="button" onclick="calculadora.calculateFactorial()">n!</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="displaytable-cell" id="bFour">
+                        <button class="button bluebutton" type="button" onclick="calculadora.writeToDisplay('4')">4</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="displaytable-cell" id="bFive">
+                        <button class="button bluebutton" type="button" onclick="calculadora.writeToDisplay('5')">5</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="displaytable-cell" id="bSix">
+                        <button class="button bluebutton" type="button" onclick="calculadora.writeToDisplay('6')">6</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="displaytable-cell" id="bSubtract">
+                        <button class="button greenbutton" type="button" onclick="calculadora.writeOperatorToDisplay('-')">-</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="displaytable-cell" id="bToggleSign">
+                        <button class="button greenbutton" type="button" onclick="calculadora.toggleSign()">(-)</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="displaytable-cell" id="bOne">
+                        <button class="button bluebutton" type="button" onclick="calculadora.writeToDisplay('1')">1</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="displaytable-cell" id="bTwo">
+                        <button class="button bluebutton" type="button" onclick="calculadora.writeToDisplay('2')">2</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="displaytable-cell" id="bThree">
+                        <button class="button bluebutton" type="button" onclick="calculadora.writeToDisplay('3')">3</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="displaytable-cell" id="bAdd">
+                        <button class="button greenbutton" type="button" onclick="calculadora.writeOperatorToDisplay('+')">+</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="displaytable-cell" id="bOpenParentheses">
+                        <button class="button greenbutton" type="button" onclick="calculadora.writeOperatorToDisplay('(')">(</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="displaytable-cell" id="bCloseParentheses">
+                        <button class="button greenbutton" type="button" onclick="calculadora.writeOperatorToDisplay(')')">)</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="displaytable-cell" id="bZero">
+                        <button class="button bluebutton" type="button" onclick="calculadora.writeToDisplay('0')">0</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="displaytable-cell" id="bDot">
+                        <button class="button greenbutton" type="button" onclick="calculadora.writeToDisplay('.')">.</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="displaytable-cell" id="bEquals">
+                        <button class="button greenbutton" type="button" onclick="calculadora.solveOperation()">=</button>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </main>
+</body>
+
+</html>
